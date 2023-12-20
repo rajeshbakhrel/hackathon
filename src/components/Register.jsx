@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const Register = () => {
+  const [loading, setLoading] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({
     name: "",
     email: "",
@@ -16,10 +17,13 @@ const Register = () => {
   // yesma api actual api rakhni
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await axios.post("https://localhost:8000/api/register", registerInfo);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -31,7 +35,7 @@ const Register = () => {
         <input type="email" placeholder="Email" onChange={handleChange} />
         <input type="text" placeholder="Address" onChange={handleChange} />
         <input type="text" placeholder="Contact" onChange={handleChange} />
-        <button>Register</button>
+        <button>{loading ? "Registering..." : "Register"}</button>
       </div>
     </form>
   );
