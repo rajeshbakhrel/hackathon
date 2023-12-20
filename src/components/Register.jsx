@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({
-    name: "",
+    username: "",
     email: "",
     address: "",
     password: "",
@@ -12,12 +12,13 @@ const Register = () => {
   });
 
   const handleChange = (e) => {
-    setRegisterInfo(...registerInfo, { [e.target.name]: e.target.value });
+    setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value });
   };
 
   // yesma api actual api rakhni
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
+    console.log(registerInfo);
     setLoading(true);
     try {
       await axios.post("https://localhost:8000/api/register", registerInfo);
@@ -46,7 +47,7 @@ const Register = () => {
         />
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="Password"
           onChange={handleChange}
         />
