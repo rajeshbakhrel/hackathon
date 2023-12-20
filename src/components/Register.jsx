@@ -45,17 +45,19 @@ const Register = () => {
           onChange={handleChange}
         />
         <input
-          name="address"
-          type="text"
-          placeholder="Address"
-          onChange={handleChange}
-        />
-        <input
           name="password"
           type="text"
           placeholder="Password"
           onChange={handleChange}
         />
+
+        <input
+          name="address"
+          type="text"
+          placeholder="Address"
+          onChange={handleChange}
+        />
+
         <input
           name="contact"
           type="text"
