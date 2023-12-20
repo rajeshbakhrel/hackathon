@@ -7,6 +7,7 @@ const Register = () => {
     name: "",
     email: "",
     address: "",
+    password: "",
     contact: "",
   });
 
@@ -31,10 +32,36 @@ const Register = () => {
     <form onSubmit={handleRegisterSubmit} className="register">
       <h1>Register</h1>
       <div className="registerfields">
-        <input type="text" placeholder="Username" onChange={handleChange} />
-        <input type="email" placeholder="Email" onChange={handleChange} />
-        <input type="text" placeholder="Address" onChange={handleChange} />
-        <input type="text" placeholder="Contact" onChange={handleChange} />
+        <input
+          name="username"
+          type="text"
+          placeholder="Username"
+          onChange={handleChange}
+        />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
+        <input
+          name="address"
+          type="text"
+          placeholder="Address"
+          onChange={handleChange}
+        />
+        <input
+          name="password"
+          type="text"
+          placeholder="Password"
+          onChange={handleChange}
+        />
+        <input
+          name="contact"
+          type="text"
+          placeholder="Contact"
+          onChange={handleChange}
+        />
         <button>{loading ? "Registering..." : "Register"}</button>
       </div>
     </form>
